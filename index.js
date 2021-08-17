@@ -22,7 +22,7 @@ async function compile(config) {
   // 修改环境路径
   let cwd = process.cwd()
   try {
-    process.chdir('../qc-pages')
+    process.chdir('../qc-pages-public')
     console.log(`New directory: ${process.cwd()}`)
   } catch (err) {
     console.error(`chdir: ${err}`)
@@ -62,7 +62,7 @@ async function compile(config) {
     if (!ifStaticExist) {
       fs.mkdirSync('./src/nxs-ui')
     }
-    await execSyncNew(`cp -r ../nxs-ui/lib ./src/nxs-ui`, { encoding: 'utf8' })
+    await execSyncNew(`cp -r ../qc/lib ./src/nxs-ui`, { encoding: 'utf8' })
     // if (env === 'production') {
     //   await CONFIG.webServiceStatic.reduce((a, b) => {
     //     return a.then(async () => {
